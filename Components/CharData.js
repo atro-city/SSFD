@@ -9,9 +9,9 @@ class CharData extends React.Component {
 			tableHead: [
 				'Move',
 				'Dmg',
-				'Startup',
-				'Active',
-				'Total',
+				'Start',
+				'Act',
+				'Tot',
 				'Hit',
 				'Backhit',
 				'Block',
@@ -20,7 +20,7 @@ class CharData extends React.Component {
 				'Guard',
 				'Notes',
 			],
-			widthArr: [50, 40, 40, 40, 40, 40, 40, 40, 90, 90, 50, 160],
+			widthArr: [60, 40, 40, 30, 30, 40, 40, 40, 90, 90, 50, 160],
 		};
 	}
 
@@ -30,12 +30,10 @@ class CharData extends React.Component {
 
 	render() {
 		const state = this.state;
-		const tableData = [];
+
 		const { navigation } = this.props;
 		const data = navigation.getParam('data', 'NULL');
-		data.map(move => {
-			tableData.push(move.item.split('#'));
-		});
+		const tableData = data;
 
 		return (
 			<View style={styles.container}>
@@ -70,7 +68,7 @@ class CharData extends React.Component {
 }
 
 const styles = StyleSheet.create({
-	container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
+	container: { flex: 1,  backgroundColor: '#fff' },
 	header: { height: 50, backgroundColor: '#537791' },
 	text: { textAlign: 'center', fontWeight: '100' },
 	dataWrapper: { marginTop: -1 },
